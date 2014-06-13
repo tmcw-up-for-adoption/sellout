@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+var fs = require('fs'),
+    resolve = require('./resolve');
+
+if (!fs.existsSync('package.json')) {
+    throw new Error('package.json expected');
+}
+
+fs.writeFileSync('component.json',
+   JSON.stringify(resolve.component(json('package.json'), getOrEmpty('component.json')), null, 2));
+
+fs.writeFileSync('bower.json',
+   JSON.stringify(resolve.bower(json('package.json'), getOrEmpty('bower.json')), null, 2));
+
+function getOrEmpty(f) { return fs.existsSync(f) ? json(f) : {}; }
+function json(f) { return JSON.parse(fs.readFileSync(f)); }

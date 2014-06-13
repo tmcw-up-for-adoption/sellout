@@ -1,0 +1,34 @@
+{
+  "name": "sellout",
+  "version": "0.0.0",
+  "description": "create bower and component packages based on your npm package",
+  "main": "resolve.js",
+  "scripts": {
+    "test": "tap test.js"
+  },
+  "bin": {
+    "sellout": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tmcw/sellout.git"
+  },
+  "keywords": [
+    "npm",
+    "package",
+    "component",
+    "bower",
+    "sell",
+    "out",
+    "silly",
+    "package",
+    "manager",
+    "hell"
+  ],
+  "author": "Tom MacWright",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tmcw/sellout/issues"
+  },
+  "homepage": "https://github.com/tmcw/sellout"
+}
