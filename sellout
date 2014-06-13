@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var fs = require('fs'),
+    spawn = require('child_process').spawn,
     resolve = require('./resolve');
 
 if (!fs.existsSync('package.json')) {
@@ -12,6 +13,12 @@ fs.writeFileSync('component.json',
 
 fs.writeFileSync('bower.json',
    JSON.stringify(resolve.bower(json('package.json'), getOrEmpty('bower.json')), null, 2));
+
+spawn('git', 'config remote.origin.url'.split(' ')).stdout.on('data', function(data) {
+    console.log('need to bower publish?\n\n\tbower register ' +
+        json('package.json').name + ' ' +
+        data);
+});
 
 function getOrEmpty(f) { return fs.existsSync(f) ? json(f) : {}; }
 function json(f) { return JSON.parse(fs.readFileSync(f)); }
