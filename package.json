@@ -1,6 +1,6 @@
 {
   "name": "sellout",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "create bower and component packages based on your npm package",
   "main": "resolve.js",
   "scripts": {
